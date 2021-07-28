@@ -1,4 +1,5 @@
-const { htmlEscape } = require('escape-goat');
+import { htmlEscape } from 'escape-goat';
+
 const git = require('./git');
 
 exports.getChangelog = async () => {
