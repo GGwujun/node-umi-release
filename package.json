@@ -1,0 +1,17 @@
+{
+  "name": "node-starter",
+  "version": "0.0.0",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@umijs/utils": "^3.5.14",
+    "child_process": "^1.0.2",
+    "escape-goat": "^4.0.0",
+    "git-repo-info": "^2.1.1",
+    "inquirer": "^8.1.2",
+    "lerna": "^4.0.0",
+    "new-github-release-url": "^1.0.0",
+    "open": "^8.2.1"
+  }
+}
