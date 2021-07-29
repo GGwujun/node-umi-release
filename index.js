@@ -130,7 +130,7 @@ async function release() {
   // Umi must be the latest.
   const pkgs = args.publishOnly ? getPackages() : updated;
   logStep(`publish packages: ${chalk.blue(pkgs.join(', '))}`);
-  const currVersion = require('../lerna').version;
+  const currVersion = require('./lerna').version;
   const isNext = isNextVersion(currVersion);
   const releasePkgs = pkgs.sort(a => {
     return a === 'umi' ? 1 : -1;
