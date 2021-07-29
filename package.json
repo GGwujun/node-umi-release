@@ -14,5 +14,5 @@
     "new-github-release-url": "^1.0.0",
     "open": "^8.2.1"
   },
-  "devDependencies":{}
+  "devDependencies": {}
 }
