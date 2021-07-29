@@ -66,10 +66,6 @@ async function release() {
     const updatedStdout = execa.sync(lernaCli, ['changed']).stdout;
     updated = updatedStdout
       .split('\n')
-      .map(pkg => {
-        if (pkg === 'umi') return pkg;
-        else return pkg.split('/')[1];
-      })
       .filter(Boolean);
     if (!updated.length) {
       printErrorAndExit('Release failed, no updated package is updated.');
@@ -91,13 +87,15 @@ async function release() {
 
     // Bump version
     logStep('bump version with lerna version');
-    await exec(lernaCli, [
+    const versions =  await execa(lernaCli, [
       'version',
       '--exact',
       '--no-commit-hooks',
       '--no-git-tag-version',
       '--no-push'
     ]);
+
+    console.log('versions',versions);
 
     const currVersion = require('../lerna').version;
 
