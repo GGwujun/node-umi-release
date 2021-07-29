@@ -1,21 +1,30 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add child_process
+  /usr/local/bin/node /Users/gaowujun/.yarn/releases/yarn-1.19.0.cjs
 
 PATH: 
-  C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\nodejs\;C:\ProgramData\chocolatey\bin;C:\Program Files\Git\cmd;C:\Program Files (x86)\Yarn\bin\;C:\Users\lenovo\AppData\Local\Programs\Python\Python38\Scripts\;C:\Users\lenovo\AppData\Local\Programs\Python\Python38\;C:\Users\lenovo\AppData\Local\Microsoft\WindowsApps;C:\Users\lenovo\AppData\Roaming\npm;C:\Users\lenovo\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\lenovo\AppData\Local\Yarn\bin
+  /usr/local/Cellar/yarn/1.22.10/bin:/usr/local/mysql/bin:/usr/local/Cellar/mongodb@3.4/3.4.18/bin:/Users/gaowujun/work/flutter/bin:/Library/Frameworks/Python.framework/Versions/3.9/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/usr/local/Cellar/yarn/1.22.10/bin:/usr/local/mysql/bin:/usr/local/Cellar/mongodb@3.4/3.4.18/bin:/Users/gaowujun/work/flutter/bin:/Library/Frameworks/Python.framework/Versions/3.9/bin:/Library/Frameworks/Mono.framework/Versions/Current/Commands}}
 
 Yarn version: 
-  1.22.5
+  1.19.0
 
 Node version: 
-  14.17.0
+  14.17.3
 
 Platform: 
-  win32 x64
+  darwin x64
 
 Trace: 
-  Error: connect ETIMEDOUT 104.16.16.35:443
-      at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1146:16)
+  Error: connect ENETUNREACH 104.16.22.35:443 - Local (0.0.0.0:56817)
+      at internalConnect (net.js:923:16)
+      at defaultTriggerAsyncIdScope (internal/async_hooks.js:435:18)
+      at emitLookup (net.js:1066:9)
+      at /Users/gaowujun/.yarn/releases/yarn-1.19.0.cjs:111362:28
+      at /Users/gaowujun/.yarn/releases/yarn-1.19.0.cjs:111271:13
+      at RawTask.module.exports.RawTask.call (/Users/gaowujun/.yarn/releases/yarn-1.19.0.cjs:93974:19)
+      at flush (/Users/gaowujun/.yarn/releases/yarn-1.19.0.cjs:94056:29)
+      at processTicksAndRejections (internal/process/task_queues.js:77:11)
+      at runNextTicks (internal/process/task_queues.js:64:3)
+      at processImmediate (internal/timers.js:437:9)
 
 npm manifest: 
   {
