@@ -100,7 +100,17 @@ async function release() {
     // Sync version to root package.json
     logStep('sync version to root package.json');
     const rootPkg = require('./package');
-  
+    Object.keys(rootPkg.devDependencies).forEach(name => {
+      if (name.startsWith('@umijs/') && !name.startsWith('@umijs/p')) {
+        rootPkg.devDependencies[name] = currVersion;
+      }
+    });
+    writeFileSync(
+      join(__dirname, '.', 'package.json'),
+      JSON.stringify(rootPkg, null, 2) + '\n',
+      'utf-8'
+    );
+
     // Commit
     const commitMessage = `release: v${currVersion}`;
     logStep(`git commit with ${chalk.blue(commitMessage)}`);
@@ -120,7 +130,7 @@ async function release() {
   // Umi must be the latest.
   const pkgs = args.publishOnly ? getPackages() : updated;
   logStep(`publish packages: ${chalk.blue(pkgs.join(', '))}`);
-  const currVersion = require('./lerna').version;
+  const currVersion = require('../lerna').version;
   const isNext = isNextVersion(currVersion);
   const releasePkgs = pkgs.sort(a => {
     return a === 'umi' ? 1 : -1;
