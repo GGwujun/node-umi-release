@@ -87,7 +87,7 @@ async function release() {
 
     // Bump version
     logStep('bump version with lerna version');
-    const versions =  await execa(lernaCli, [
+    const versions =  await exec(lernaCli, [
       'version',
       '--exact',
       '--no-commit-hooks',
@@ -95,24 +95,12 @@ async function release() {
       '--no-push'
     ]);
 
-    console.log('versions',versions);
-
-    const currVersion = require('../lerna').version;
+    const currVersion = require('./lerna').version;
 
     // Sync version to root package.json
     logStep('sync version to root package.json');
-    const rootPkg = require('../package');
-    Object.keys(rootPkg.devDependencies).forEach(name => {
-      if (name.startsWith('@umijs/') && !name.startsWith('@umijs/p')) {
-        rootPkg.devDependencies[name] = currVersion;
-      }
-    });
-    writeFileSync(
-      join(__dirname, '..', 'package.json'),
-      JSON.stringify(rootPkg, null, 2) + '\n',
-      'utf-8'
-    );
-
+    const rootPkg = require('./package');
+  
     // Commit
     const commitMessage = `release: v${currVersion}`;
     logStep(`git commit with ${chalk.blue(commitMessage)}`);
